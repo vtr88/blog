@@ -29,7 +29,7 @@ menu:
 params:
   abbrDateFmt: "Jan 2"
   author: "vitor"
-#  brandIconFile: "images/brandIcon.svg"
+  brandIconFile: "images/speedmetal.gif"
   dateFmt: "2006-01-02"
 #  customStylesheets: # Use to override theme styles, like logo size
 #    - "css/custom.css"
