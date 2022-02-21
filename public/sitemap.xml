@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://vitor.win/tags/hello.html</loc>
+    <lastmod>2022-02-21T16:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vitor.win/</loc>
+    <lastmod>2022-02-21T16:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vitor.win/posts.html</loc>
+    <lastmod>2022-02-21T16:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vitor.win/tags.html</loc>
+    <lastmod>2022-02-21T16:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vitor.win/posts/hello_world.html</loc>
+    <lastmod>2022-02-21T16:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vitor.win/categories.html</loc>
+  </url>
+  
+</urlset>
