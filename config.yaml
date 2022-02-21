@@ -1,6 +1,6 @@
 baseURL: http://vitor.win/
 languageCode: "en-us"
-title: "new beginning"
+title: "new beginnings"
 theme: "smigle"
 relativeUrls: true
 uglyURLs: true
@@ -38,4 +38,4 @@ params:
       url: https://github.com/vtr88
     - name: StackOverflow
       url: https://stackoverflow.com/users/1369916/vitor-hugo
-  subtitle: "back to the grind of infosec studies and blogging."
+  subtitle: "blog para estudos de infosec e o que mais vier a cabeça."
