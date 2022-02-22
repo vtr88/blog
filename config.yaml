@@ -1,6 +1,6 @@
 baseURL: http://vitor.win/
 languageCode: "en-us"
-title: "new beginnings"
+title: " upon the darkthrone"
 theme: "smigle"
 relativeUrls: true
 uglyURLs: true
@@ -29,7 +29,7 @@ menu:
 params:
   abbrDateFmt: "Jan 2"
   author: "vitor"
-  brandIconFile: "images/speedmetal.gif"
+  brandIconFile: "images/b.png"
   dateFmt: "2006-01-02"
 #  customStylesheets: # Use to override theme styles, like logo size
 #    - "css/custom.css"
@@ -38,4 +38,8 @@ params:
       url: https://github.com/vtr88
     - name: StackOverflow
       url: https://stackoverflow.com/users/1369916/vitor-hugo
-  subtitle: "blog para estudos de infosec e o que mais vier a cabeça."
+    - name: Twitter
+      url: https://twitter.com/bl0w
+    - name: LastFM
+      url: https://www.last.fm/user/bl0w
+  subtitle: " bug bounty, pentest, malware/exploit dev, etc."

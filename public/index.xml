@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>new beginnings</title>
+    <title> upon the darkthrone</title>
     <link>http://vitor.win/</link>
-    <description>Recent content on new beginnings</description>
+    <description>Recent content on  upon the darkthrone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Feb 2022 16:40:00 +0000</lastBuildDate><atom:link href="http://vitor.win/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Feb 2022 09:12:48 -0300</lastBuildDate><atom:link href="http://vitor.win/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>to blog or not to blog, again...</title>
-      <link>http://vitor.win/posts/hello_world.html</link>
-      <pubDate>Mon, 21 Feb 2022 16:40:00 +0000</pubDate>
+      <title>the plan</title>
+      <link>http://vitor.win/posts/2022.html</link>
+      <pubDate>Tue, 22 Feb 2022 09:12:48 -0300</pubDate>
       
-      <guid>http://vitor.win/posts/hello_world.html</guid>
-      <description>back at it again&amp;hellip;</description>
+      <guid>http://vitor.win/posts/2022.html</guid>
+      <description>2022 should be a year in which I complete my pivot from full stack enterprise developer to the information security field. Be it as a bug bounty hunter, be it as pentester, at this point I would even go in as a blue teamer just so I can get my foot off the doorsteps.
+My experience as a developer proved useless when trying to break the HR barrier, as expected. And the lack of working experience and certifications does not help.</description>
     </item>
     
   </channel>

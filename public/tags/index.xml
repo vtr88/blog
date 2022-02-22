@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on new beginnings</title>
+    <title>Tags on  upon the darkthrone</title>
     <link>http://vitor.win/tags.html</link>
-    <description>Recent content in Tags on new beginnings</description>
+    <description>Recent content in Tags on  upon the darkthrone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 21 Feb 2022 16:40:00 +0000</lastBuildDate><atom:link href="http://vitor.win/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>hello</title>
-      <link>http://vitor.win/tags/hello.html</link>
-      <pubDate>Mon, 21 Feb 2022 16:40:00 +0000</pubDate>
-      
-      <guid>http://vitor.win/tags/hello.html</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language><atom:link href="http://vitor.win/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
