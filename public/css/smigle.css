@@ -4,6 +4,12 @@ body {
   margin: 0 auto;
   padding: 10px;
 }
+img[src$='#center'] {
+  display: block;
+  margin: 1.0rem auto;
+  max-width: 100%;
+  height: auto;
+}
 #brand {
   display: flex;
   flex-direction: column;
