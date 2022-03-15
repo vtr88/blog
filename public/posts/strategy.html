@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>the strategy |  upon the darkthrone</title>
+    
+  
+  <link rel="stylesheet" href="../css/reset.css"/>
+  <link rel="stylesheet" href="../css/font.css"/>
+  <link rel="stylesheet" href="../css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="http://vitor.win/">
+      <img
+        class="icon"
+        src="../images/b.png"
+      />
+    </a>
+    <div class="text">
+      <a href="http://vitor.win/"><h1> upon the darkthrone</h1></a>
+      <h3> bug bounty, pentest, malware/exploit dev, etc.</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="../"><b>Home</b></a>
+      
+         | 
+        <a href="../about/"><b>About</b></a>
+      
+         | 
+        <a href="../posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="../categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="../tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>the strategy</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-03-14</time>
+    
+    
+  </strong>
+  <span> • 599 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><p>Or the post that should have the strategy but actually became a post about the strategy to build a strategy.</p>
+<p>My methodology for bug hunting, I decided, was going to follow Jason Haddix videos and zseano&rsquo;s guide. The latest interaction of Haddix&rsquo;s does not touch on the application analysis part, only on the recon side and that alone was overwhelming. I initially thought I could pick a tool for every step of the way, quickly wire it together with a python script and generate something to feed a joplin notebook. But there were more steps than I previously thought and way to many tools for every one of them that I was not familiar with.</p>
+<p>Those videos I found, are great to get ideas from, he is trying to touch on as much as possible  and I would not recommend to someone beginning bug hunting, like me. What was clear to me is that the video is about 3 basic steps.</p>
+<p>Find the roots, find subdomains, check the ports. With that in mind, trying to be as simple as I possible can be to start, with the goal of eventually expanding, wiring and automating, let&rsquo;s choose what to do for each.</p>
+<h4 id="roots">Roots:</h4>
+<p>To find the roots, it seemed like the crunchbase idea is simple enough and could be quickly turned into a joplin note. Crunchbase acquisitions is the first step to go while we use amass and bgp.he.net for ASN enum. I will for now skip the reverse whois, ad/analytics and google-fu parts and but will still be using shodan. So basically:</p>
+<blockquote>
+<p>&quot;<br>
+crunchbase for acquisitions.<br>
+amass intel -asn [asn-number] that we get from <a href="https://bgp.he.net/">https://bgp.he.net/</a><br>
+shodan for the domain.<br>
+&quot;</p>
+</blockquote>
+<h4 id="subdomain">Subdomain:</h4>
+<p>For subdomain enum I decided to go with gospider, simple go tool, simple output, easy to integrate. That takes care of the first step, linked discovery. For subdomain scraping and brute forcing we are able to use amass again.</p>
+<blockquote>
+<p>&quot;<br>
+~/go/bin/gospider -s http://domain -v<br>
+amass enum -d domain (for scraping)<br>
+amass enum -brute -d domain -w brute.list<br>
+&quot;</p>
+</blockquote>
+<p>As an extra, I will try to use Jhaddix all.txt list.</p>
+<h4 id="port-analysis">Port analysis:</h4>
+<p>And last but not least, we will scan all the info we got with masscan and nmap. The issue with masscan is that it only scans IPs and what we got with roots and subdomains we need to convert, using  dnmasscan script. And finally feed it to a tool I just found out about, and shall be used everywhere from now on, brutespray.</p>
+<blockquote>
+<p>&quot;<br>
+sudo ./dnmasscan domains.txt dns.log<br>
+nmap -vv &ndash;reason -Pn -T4 -sV -p 80 &ndash;script=&ldquo;banner&rdquo; -oG nmap.log [ip]<br>
+python brutespray.py &ndash;file ../nmap.log<br>
+&quot;</p>
+</blockquote>
+<p>And that concludes the recon process I extracted from Jhaddix. I most likely will also add feroxbuster to as much domains as possible to find stuff:</p>
+<blockquote>
+<p>&quot;<br>
+feroxbuster -u url -t 10 -w /seclists/big.txt -x &ldquo;txt,html,php,asp,aspx,jsp&rdquo; -v -k -n -q -o file.log<br>
+&quot;</p>
+</blockquote>
+<p>And for now that is a good start. I know this looks like a strategy and not really a plan to make one, but this is a very fluid process, things are bound to change on the first target already, steps will be added, steps will be removed. Plus, this is the &lsquo;easy&rsquo; part of hunting, analyzing what you get from recon is where the loot is. For each type of bug, I will write a more in depth look and research. There are bugs that I am familiar with like sqli and bugs I have never exploited outside of tryhackme/htb setups.</p>
+<p>But it is a start. <br>
+Start where you are. Use what you have. Do what you can.</p>
+<p><img src="../images/lfg.jpeg#center" alt="lfg"></p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/vtr88">GitHub</a>
+      
+         | 
+        <a href="https://stackoverflow.com/users/1369916/vitor-hugo">StackOverflow</a>
+      
+         | 
+        <a href="https://twitter.com/bl0w">Twitter</a>
+      
+         | 
+        <a href="https://www.last.fm/user/bl0w">LastFM</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2022
+    <a href="http://vitor.win/"><strong>vitor</strong></a>.
+    This work is licensed under the
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
+  </p>
+</footer>
+
+  </body>
+</html>
