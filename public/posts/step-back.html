@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>step back |  upon the darkthrone</title>
+    
+  
+  <link rel="stylesheet" href="../css/reset.css"/>
+  <link rel="stylesheet" href="../css/font.css"/>
+  <link rel="stylesheet" href="../css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="http://vitor.win/">
+      <img
+        class="icon"
+        src="../images/b.png"
+      />
+    </a>
+    <div class="text">
+      <a href="http://vitor.win/"><h1> upon the darkthrone</h1></a>
+      <h3> bug bounty, pentest, malware/exploit dev, etc.</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="../"><b>Home</b></a>
+      
+         | 
+        <a href="../about/"><b>About</b></a>
+      
+         | 
+        <a href="../posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="../categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="../tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>step back</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-03-24</time>
+    
+    
+  </strong>
+  <span> • 429 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><p>Was needed.</p>
+<p>First week is not over yet, but it was not a good one. There were technical issues while trying to brute force subdomains for the xxx.playstation.net with amass. Yes, I chose playstation as one of the targets by the way. The notebook that is being used on the tests almost died while doing it. Then after cancelling the process (but still getting 500+ domains), masscan took a day to finish. When it was done, following my own rules from the previous post, I wanted to send it all to brutespray, but could not find a tool that converted masscan.log results to nmap -oG, which means another step back for writing the script.</p>
+<pre><code>#!/usr/bin/python3
+
+&quot;&quot;&quot;
+&quot;&quot;&quot; Simple script to generate oG results from masscan.log
+&quot;&quot;&quot;
+
+import os
+import sys
+import argparse
+import subprocess
+
+def get_ips(masscan):
+    ips = {}
+    for line in masscan:
+        spl = line.split()
+
+        if(spl[0]==&quot;Timestamp:&quot;):
+            if(spl[3] in ips):
+                ips[spl[3]] = ips[spl[3]] + &quot;,&quot; + spl[6].split('/')[0] 
+            else: 
+                ips[spl[3]] = spl[6].split('/')[0]
+
+    return ips
+
+def main(arguments):
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('infile', help=&quot;Input file&quot;, type=argparse.FileType('r'))
+    parser.add_argument('-o', '--outfile', help=&quot;Output file&quot;, 
+                        default=sys.stdout, type=argparse.FileType('w'))
+
+    args = parser.parse_args(arguments)
+    res = get_ips(args.infile)
+
+    for ip in res:
+        subprocess.call(['nmap', '-vv', '-reason', '-Pn', '-p ' + res[ip], 
+                        '-T4', '-sV', ip, '-oG', ip + &quot;.txt&quot;])
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))   
+</code></pre>
+<p>That led me to see that there was no brute forceable services at all. Great. Three days gone, no web application testing at all. I did not even find a domain with a web page on it from xxx.playstation.net. I also felt the need for a viewer of the results. Which will lead me to expend the rest of the week/weekend building a HTML page generator that displays all the nmap results with hostname and ip to tie this whole thing together.</p>
+<p>Tooling is important, it was something I knew before, and I knew I would have to get myself much more familiar with the ones I was not. The first time I ran amass on the target I did not use any api keys.
+It was also obvious that I would have to build my own stuff, constantly. I just thought my python would be sharper and in less need of stackoverflow&hellip;</p>
+<p>It&rsquo;s a step back, not much progress but progress nonetheless. I should finish my html generator while amassing for more on xxx.playstation.net. When that is done, I go for xxx.sonyentertainmentnetwork.com and while the automated stuff run and the reports are generated I can focus on my.playstation.com, a actual web app, and start the blog posts and testing on web app techniques.</p>
+<p>The only way is forward.</p>
+<p><img src="../images/brick.png#center" alt="firstbrick"></p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/vtr88">GitHub</a>
+      
+         | 
+        <a href="https://stackoverflow.com/users/1369916/vitor-hugo">StackOverflow</a>
+      
+         | 
+        <a href="https://twitter.com/bl0w">Twitter</a>
+      
+         | 
+        <a href="https://www.last.fm/user/bl0w">LastFM</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2022
+    <a href="http://vitor.win/"><strong>vitor</strong></a>.
+    This work is licensed under the
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
+  </p>
+</footer>
+
+  </body>
+</html>

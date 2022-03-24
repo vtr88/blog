@@ -6,7 +6,17 @@
     <description>Recent content in Posts on  upon the darkthrone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Mar 2022 14:36:50 -0300</lastBuildDate><atom:link href="http://vitor.win/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 11:03:56 -0300</lastBuildDate><atom:link href="http://vitor.win/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>step back</title>
+      <link>http://vitor.win/posts/step-back.html</link>
+      <pubDate>Thu, 24 Mar 2022 11:03:56 -0300</pubDate>
+      
+      <guid>http://vitor.win/posts/step-back.html</guid>
+      <description>Was needed.
+First week is not over yet, but it was not a good one. There were technical issues while trying to brute force subdomains for the xxx.playstation.net with amass. Yes, I chose playstation as one of the targets by the way. The notebook that is being used on the tests almost died while doing it. Then after cancelling the process (but still getting 500+ domains), masscan took a day to finish.</description>
+    </item>
+    
     <item>
       <title>the strategy</title>
       <link>http://vitor.win/posts/strategy.html</link>
