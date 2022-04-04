@@ -6,7 +6,17 @@
     <description>Recent content on  upon the darkthrone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 11:03:56 -0300</lastBuildDate><atom:link href="http://vitor.win/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Apr 2022 20:18:32 -0300</lastBuildDate><atom:link href="http://vitor.win/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>love</title>
+      <link>http://vitor.win/posts/love.html</link>
+      <pubDate>Sun, 03 Apr 2022 20:18:32 -0300</pubDate>
+      
+      <guid>http://vitor.win/posts/love.html</guid>
+      <description>Was progress made? Yes.
+I almost feel embarrassed for posting that python script on the last post. Had to do five other ones. Most of them are handling results from a tool and sending it to the next one. Some of them are just organizing the results in a easier to examine format. Along the way I missed the fact that I need to httpx the results, find valid 200 URLs to test for the OWASP top 10.</description>
+    </item>
+    
     <item>
       <title>step back</title>
       <link>http://vitor.win/posts/step-back.html</link>
