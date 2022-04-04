@@ -19,4 +19,4 @@ Only for me.
 
 And she followed. Because she does see the good in it. Because she also have stuff to do, and want a cool and fun place to do it. She wants to do it with me. She loves me. I love her. This is the start of the night, this post, I have a lot to go for now, and I will. Couldn't be happier, learning as I go. This will be a night to remember. All nights should be a night to remember when I am with the love of my life.  
 
-![love](/images/love.jpg#center)
+![love](/images/spfc.jpg#center)
