@@ -1,7 +1,7 @@
 ---
 title: "the strategy"
 date: 2022-03-14T14:36:50-03:00
-draft: false
+draft: true
 ---
 
 Or the post that should have the strategy but actually became a post about the strategy to build a strategy.  

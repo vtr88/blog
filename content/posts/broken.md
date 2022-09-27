@@ -1,7 +1,7 @@
 ---
 title: "broken"
 date: 2022-05-27T15:37:56-03:00
-draft: false
+draft: true
 ---
 
 There is a part of me that does not care at all. There is a nihilism at the core of my being, that does not get hurt when dealing with hurtful things. It does not get excited with ego boosts from whatever the source. It really does not care. It doesn't move.

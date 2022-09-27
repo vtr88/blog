@@ -1,7 +1,6 @@
 baseURL: http://vitor.win/
 languageCode: "en-us"
 title: " upon the darkthrone"
-theme: "smigle"
 relativeUrls: true
 uglyURLs: true
 menu:
@@ -42,4 +41,4 @@ params:
       url: https://twitter.com/bl0w
     - name: LastFM
       url: https://www.last.fm/user/bl0w
-  subtitle: " bug bounty, pentest, malware/exploit dev, st!, etc."
+  subtitle: " bug bounty, pentest, malware/exploit, gamedev."

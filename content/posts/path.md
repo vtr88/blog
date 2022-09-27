@@ -1,7 +1,7 @@
 ---
 title: "the path"
 date: 2022-02-28T10:16:30-03:00
-draft: false
+draft: true
 ---
 
 After a week of looking around, some of what I already thought was the way to go remained and some has changed. The elements are still the same, Need to get a certification that is recognized in the market, but have to keep in mind my limited budget for the year. Have to get a methodology in place and start the process of hunting for bugs and finally, what to do with the platforms of study I was already doing.  

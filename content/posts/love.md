@@ -1,7 +1,7 @@
 ---
 title: "love"
 date: 2022-04-03T20:18:32-03:00
-draft: false
+draft: true
 ---
 
 Was progress made? Yes.  
@@ -10,7 +10,7 @@ Along the way I missed the fact that I need to httpx the results, find valid 200
 
 And with that said, I need to stop, as life happens, and point out how relationships can be of help, how they can be an issue and how, more importantly, it's all about you.  
 
-The concept is simple, you keep trying to balance relationships with the work you need to do, with studies, with daily stuff. I can only speak for me, and for me, it was always a problem. Not onyl my partner, but friends. Where I am looking to get requires hard dedication, and obviously, no one cares. They should'nt, is what I learned. The situation where I have time to work what I need to work, what I need to write and do, can only be constructed by me, independent of what they want. But the revelation was, my friends won't follow. I need to be able to say no, I need to be able to move on, if necessary.  
+The concept is simple, you keep trying to balance relationships with the work you need to do, with studies, with daily stuff. I can only speak for me, and for me, it was always a problem. Not only with my partner, but with friends. Where I am looking to get requires hard dedication, and obviously, no one cares. They should'nt, is what I learned. The situation where I have time to work what I need to work, what I need to write and do, can only be constructed by me, independent of what they want. But the revelation was, my friends won't follow. I need to be able to say no, I need to be able to move on, if necessary.  
 My love always do, tho. I feel proud, she followed me into the depths of alcohol abuse, when I think about it, not that it was not supposed to be a problem for her eventually anyway, but I am part of her issue with it. It was highly damaging, for both of us. But she was there. She is almost always there. I feel blessed.   
 
 Today, a sunday, we started off losing a championship in a sad way (talking about the football team we both root for, we are brazilians after all), then we drank, excessively. But I decided to change the direction of the night. For me. That is a very important point.  
