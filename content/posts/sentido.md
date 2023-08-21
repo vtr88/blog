@@ -1,7 +1,7 @@
 ---
 title: "sentido"
 date: 2023-07-10T16:35:38-03:00
-draft: false
+draft: true
 ---
 
 A vida não tem sentido.
