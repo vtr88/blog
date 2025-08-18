@@ -1,0 +1,62 @@
+# Documentation: https://gohugo.io/getting-started/configuration
+# Don't remove _merge, which imports default config
+theme: tema
+baseURL: https://vitor.win
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+enableGitInfo: false # Set lastmod from git history, this may increase build time
+enableEmoji: true # Emoji list: https://gohugo.io/quick-reference/emojis/
+enableRobotsTXT: true
+
+params:
+  _merge: deep # Import default config
+  rssFullContent: true
+  homePagerSize: 5
+  sectionPagerSize: 10000 # Default: 10, set this to a large number to remove pagination
+  images:
+    # Default image used in Open Graph, see https://gohugo.io/templates/embedded/#configure-open-graph
+    - favicon.ico # /static/favicon.ico
+
+frontmatter:
+  lastmod: ['lastmod', ':default'] # lastmod in front matter has highest precedence
+
+markup:
+  _merge: deep # Import default config
+  goldmark:
+    renderer:
+      unsafe: true # Allow HTML code in Markdown, see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+
+# Any key not defined under a languages will fall back to the global value in the root of configuration
+languages:
+  en:
+    contentDir: content/en
+    languageCode: en-US
+    languageDirection: ltr
+    languageName: English
+    title: Hi, I am Vitor.
+    weight: 10
+    menus:
+      main:
+        - name: Home
+          pageRef: /
+          weight: 10
+        - name: Posts
+          pageRef: /posts
+          weight: 20
+        - name: Tags
+          pageRef: /tags
+          weight: 30
+        - name: Categories
+          pageRef: /categories
+          weight: 40
+        - name: About
+          pageRef: /about
+          weight: 50
+    params:
+      dateFormat: Jan 02, 2006 # See https://gohugo.io/functions/time/format/
+      author: VHES # Default author, supports single value or list, used in single page
+      footer:
+        copyright:
+          yearStart: 2023 # Optional
+          yearEnd: 2024 # Optional, default value: current year
+          author: 

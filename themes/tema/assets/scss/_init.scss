@@ -1,0 +1,21 @@
+// Variables
+$body-margin-left: 16px !default;
+$body-margin-right: 16px !default;
+$font-family: sans-serif !default;
+$base-font-size: 18px !default;
+$line-height: 1.5 !default;
+$body-max-width: 768px !default;
+$desktop-breakpoint: $body-max-width + $body-margin-left + $body-margin-right !default;
+
+// Color, see https://github.com/morhetz/gruvbox
+$background-color-light: #504945 !default;
+$background-color1-light: #ebdbb2 !default;
+$foreground-color-light: #d5c4a1 !default;
+$foreground-color3-light: #ebdbb2 !default;
+$accent-color-light: #fe8019 !default; 
+
+$background-color-dark: #504945 !default;
+$background-color1-dark: #ebdbb2 !default;
+$foreground-color-dark: #d5c4a1 !default;
+$foreground-color3-dark: #ebdbb2 !default;
+$accent-color-dark: #fe8019 !default;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hi, I am Vitor.</title>
+    <link>https://vitor.win/posts/</link>
+    <description>Recent content in Posts on Hi, I am Vitor.</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 14 Jun 2025 11:47:46 -0300</lastBuildDate>
+    <atom:link href="https://vitor.win/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Espada ~ The Sword ~ La Espada</title>
+      <link>https://vitor.win/posts/a-espada/</link>
+      <pubDate>Sat, 14 Jun 2025 11:47:46 -0300</pubDate>
+      <guid>https://vitor.win/posts/a-espada/</guid>
+      <description>&lt;p&gt;No assunto acesso de informação, tendenciosa ou não, a internet é a espada mais poderosa.&#xA;Mas por si só, informação não tem sentido. Só tem algum valor quando aplicada -&#xA;E aqui também a internet é a espada mais poderosa. Um infinito ralo, eterno consumo.&#xA;Controle seu vício, produza empunhando a espada.&lt;/p&gt;&#xA;&lt;p&gt;When it comes to access to information, biased or not, the inernet is the most powerful sword.&#xA;But by itself, information has no meaning. It only has value when applied -&#xA;And here also the internet is the most powerful sword. An infinite drain, eternal comsumption.&#xA;Control your addiction, produce wielding the sword.&lt;/p&gt;&#xA;&lt;p&gt;Cuando se trata de acceso a la información, sesgada o no, Internet es la espada más poderosa.&#xA;Pero por sí misma, la información no tiene sentido. Solo tiene algún valor cuando se aplica -&#xA;Y aquí también internet es la espada más poderosa. Un drenaje infinito, un consumo eterno.&#xA;Controla tu adicción, produce empuñando la espada.&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Ludum Dare 55!</title>
+      <link>https://vitor.win/posts/ludumdare55/</link>
+      <pubDate>Sun, 14 Apr 2024 17:45:04 -0300</pubDate>
+      <guid>https://vitor.win/posts/ludumdare55/</guid>
+      <description>&lt;p&gt;My game for ludum dare 55:&lt;/p&gt;&#xA;&lt;iframe src=&#34;https://vitor.win/game/feam.html&#34; width=&#34;800&#34; height=&#34;600&#34; style=&#34;border:none;&#34; onclick=&#34;this.focus();&#34;&gt;&lt;/iframe&gt;&#xA;&lt;script&gt;&#xA;document.addEventListener(&#34;keydown&#34;, function(event) {&#xA;  const keysToPrevent = [&#34;ArrowUp&#34;, &#34;ArrowDown&#34;, &#34;ArrowLeft&#34;, &#34;ArrowRight&#34;, &#34;Space&#34;, &#34;KeyA&#34;, &#34;KeyS&#34;, &#34;KeyD&#34;, &#34;KeyW&#34;];&#xA;  if (keysToPrevent.includes(event.code)) {&#xA;    event.preventDefault();  // This stops the default browser behavior&#xA;  }&#xA;}, false);&#xA;&lt;/script&gt;&#xA;&lt;p&gt;Please Enjoy and leave a like.&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>CV</title>
+      <link>https://vitor.win/posts/cv/</link>
+      <pubDate>Thu, 22 Feb 2024 17:12:58 -0300</pubDate>
+      <guid>https://vitor.win/posts/cv/</guid>
+      <description>&lt;p&gt;Link for the CV:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;../vitor.pdf&#34;&gt;Download&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;english cv:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;../vitoren.pdf&#34;&gt;Download&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+    </item>
+  </channel>
+</rss>
