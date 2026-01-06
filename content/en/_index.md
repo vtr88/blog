@@ -4,4 +4,4 @@ draft: false
 title: Home
 ---
 
-Hello, this is my personal page, a portfolio and CV holder with blog posts on my personal interests.
+Hello, this is my page, a portfolio and CV holder with blog posts on my personal interests.

@@ -6,6 +6,56 @@
 .body {
   font-family: $font-family;
   line-height: $line-height;
+  font-weight: bold;
+}
+
+// Newspaper header styling
+.newspaper-header {
+  text-align: center;
+  padding-block: 1.5rem;
+  border-bottom: 3px double #000;
+  margin-bottom: 1rem;
+}
+
+.newspaper-logo {
+  max-width: 165px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.newspaper-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 2.52rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #000;
+  padding-block: 0.5rem;
+  display: inline-block;
+  padding-inline: 1rem;
+  
+  a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  a:hover {
+    opacity: 1;
+    color: #000;
+  }
+}
+
+@media (max-width: 600px) {
+  .newspaper-title {
+    font-size: 1.68rem;
+  }
+  
+  .newspaper-logo {
+    max-width: 110px;
+  }
 }
 
 p,
@@ -19,6 +69,31 @@ h5,
 h6 {
   // Break long words
   overflow-wrap: break-word;
+}
+
+// Newspaper-style headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 2.1rem;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.68rem;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.2rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.26rem;
+  margin-top: 1.5rem;
 }
 
 .toc {
@@ -90,6 +165,7 @@ iframe {
     flex-direction: row;
     gap: 0.5rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   // Selected link

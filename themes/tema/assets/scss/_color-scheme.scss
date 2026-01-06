@@ -35,19 +35,29 @@ h6 {
 
 a {
   color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 .header {
-  border-bottom: 1px solid var(--background-color1);
+  padding-bottom: 1rem;
 }
 
 .footer {
-  border-top: 1px solid var(--background-color1);
+  border-top: 3px double var(--background-color1);
+  padding-top: 1rem;
+  font-style: italic;
 }
 
 blockquote {
   background-color: var(--background-color1);
-  border-left: 0.5rem solid var(--accent-color);
+  border-left: 4px solid var(--accent-color);
+  font-style: italic;
+  padding: 1rem;
 }
 
 // Don't apply inline code's style to code block

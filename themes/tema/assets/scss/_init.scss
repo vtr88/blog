@@ -1,21 +1,21 @@
 // Variables
 $body-margin-left: 16px !default;
 $body-margin-right: 16px !default;
-$font-family: sans-serif !default;
-$base-font-size: 18px !default;
-$line-height: 1.5 !default;
-$body-max-width: 768px !default;
+$font-family: 'Georgia', 'Times New Roman', serif !default;
+$base-font-size: 15.12px !default;
+$line-height: 1.6 !default;
+$body-max-width: 756px !default;
 $desktop-breakpoint: $body-max-width + $body-margin-left + $body-margin-right !default;
 
-// Color, see https://github.com/morhetz/gruvbox
-$background-color-light: #504945 !default;
-$background-color1-light: #ebdbb2 !default;
-$foreground-color-light: #d5c4a1 !default;
-$foreground-color3-light: #ebdbb2 !default;
-$accent-color-light: #fe8019 !default; 
+// Newspaper color scheme - black, white, and bright green
+$background-color-light: #fef9f1 !default;
+$background-color1-light: #f5f0e8 !default;
+$foreground-color-light: #000000 !default;
+$foreground-color3-light: #333333 !default;
+$accent-color-light: #51a30e !default; // Bright green for highlights
 
-$background-color-dark: #504945 !default;
-$background-color1-dark: #ebdbb2 !default;
-$foreground-color-dark: #d5c4a1 !default;
-$foreground-color3-dark: #ebdbb2 !default;
-$accent-color-dark: #fe8019 !default;
+$background-color-dark: #fef9f1 !default;
+$background-color1-dark: #f5f0e8 !default;
+$foreground-color-dark: #000000 !default;
+$foreground-color3-dark: #333333 !default;
+$accent-color-dark: #51a30e !default; // Bright green for highlights
