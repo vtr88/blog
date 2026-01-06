@@ -1,0 +1,7 @@
+[
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Hugo: New Post"
+  }
+]

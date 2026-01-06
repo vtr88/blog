@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Hugo: Run Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "hugo server -D --bind 0.0.0.0",
+      "cwd": "${workspaceFolder}",
+      "serverReadyAction": {
+        "pattern": "Web Server is available at (https?://[^\\s]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "preLaunchTask": "Hugo: Run Server"
+    }
+  ]
+}

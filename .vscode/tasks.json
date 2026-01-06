@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Hugo: Run Server",
+      "type": "shell",
+      "command": "hugo server -D --bind 0.0.0.0",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Building sites.*$",
+          "endsPattern": "^.*Web Server is available.*$"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Hugo: Build Site",
+      "type": "shell",
+      "command": "hugo --cleanDestinationDir",
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: Deploy to Server",
+      "type": "shell",
+      "command": "hugo --cleanDestinationDir && rsync -avz --delete -e 'ssh -i /home/soth/.config/.ssh/id_ed' /home/soth/Documentos/blog/public/ root@216.238.99.112:/var/www/html/",
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: New Post",
+      "type": "shell",
+      "command": "read -p 'Post filename (e.g., my-new-post): ' filename && hugo new content/en/posts/$filename.md && code content/en/posts/$filename.md",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    }
+  ]
+}
