@@ -6,7 +6,7 @@
 .body {
   font-family: $font-family;
   line-height: $line-height;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 // Newspaper header styling
@@ -25,10 +25,10 @@
 }
 
 .newspaper-title {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Pirata One', cursive;
   font-size: 2.52rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;
   color: #000;
