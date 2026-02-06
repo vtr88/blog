@@ -33,26 +33,30 @@ languages:
     languageCode: en-US
     languageDirection: ltr
     languageName: English
-    title: Hi, I am Vitor.
+    title: λόγος
     weight: 10
     menus:
       main:
-        - name: Home
+        - name: home
           pageRef: /
           weight: 10
-        - name: Posts
+        - name: posts
           pageRef: /posts
           weight: 20
-        - name: Tags
+        - name: tags
           pageRef: /tags
           weight: 30
-        - name: Categories
+        - name: categories
           pageRef: /categories
           weight: 40
-        - name: About
+        - name: cv
+          pageRef: /posts/cv
+          weight: 45
+        - name: about
           pageRef: /about
           weight: 50
     params:
+      headerTitle: Hi, I am Vitor.
       dateFormat: Jan 02, 2006 # See https://gohugo.io/functions/time/format/
       author: VHES # Default author, supports single value or list, used in single page
       footer:

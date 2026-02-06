@@ -12,9 +12,9 @@
 // Newspaper header styling
 .newspaper-header {
   text-align: center;
-  padding-block: 1.5rem;
-  border-bottom: 3px double #000;
-  margin-bottom: 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 3px double #2d2206;
+  margin-bottom: 0.5rem;
 }
 
 .newspaper-logo {
@@ -31,20 +31,20 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;
-  color: #000;
+  color: #2d2206;
   padding-block: 0.5rem;
   display: inline-block;
   padding-inline: 1rem;
   
   a {
-    color: #000;
+    color: #2d2206;
     text-decoration: none;
     font-weight: 700;
   }
   
   a:hover {
     opacity: 1;
-    color: #000;
+    color: #2d2206;
   }
 }
 
@@ -86,7 +86,7 @@ h1 {
 
 h2 {
   font-size: 1.68rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #2d2206;
   padding-bottom: 0.2rem;
   margin-top: 2rem;
 }
@@ -134,7 +134,7 @@ figure {
   // Horizontal scrollbar for table
   overflow-x: auto;
   // Margin
-  margin-block: 1rem;
+  margin-block: 0.5rem;
 
   >table {
     // Override global word-break, don't break Chinese/Japanese/Korean (CJK) text

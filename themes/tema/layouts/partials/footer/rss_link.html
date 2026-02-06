@@ -1,9 +1,9 @@
-{{- with .OutputFormats.Get "rss" -}}
 <p class="footer__rss-link">
-<a href="{{ .RelPermalink }}">RSS</a> - 
-<a href="https://github.com/vtr88">GitHub</a> - 
-<a href="https://x.com/bl0w">Twitter</a> - 
-<a href="https://www.last.fm/user/bl0w">Last.fm</a> - 
-<a href="https://www.linkedin.com/in/vitordaguerreo/">LinkedIn</a>
-</p>
+{{- with .OutputFormats.Get "rss" -}}
+<a href="{{ .RelPermalink }}">rss</a> — 
 {{- end }}
+<a href="https://github.com/vtr88">github</a> —  
+<a href="https://x.com/bl0w">twitter</a> —  
+<a href="https://www.last.fm/user/bl0w">last.fm</a> —   
+<a href="https://www.linkedin.com/in/vitordaguerreo/">linkedin</a>
+</p>

@@ -2,6 +2,8 @@
 title: "ludum dare 55"
 date: 2024-04-14T17:45:04-03:00
 draft: false
+tags: ["gamedev"]
+categories: ["games"]
 ---
 
 My game for ludum dare 55:

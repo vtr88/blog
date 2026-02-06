@@ -3,12 +3,12 @@
 # Single page
 authorDelimiter: ", "
 lastmodWrapper: " (Modified: {{ .lastmod }})"
-tableOfContents: Table of Contents
+tableOfContents: table of contents
 colon: ':' # Taxonomy, e.g. Tags:
-previousPage: "Prev: " # Page nav
-nextPage: "Next: " # Page nav
-themeInfo: Built with LOVE ❤️ :)
+previousPage: "prev: " # Page nav
+nextPage: "next: " # Page nav
+themeInfo: built with 💚 :)
 
 # 404 page, e.g. /en/404.html
-404Message: The page you visited was not found.
-404HomeLinkMessage: Return to the home page
+404Message: the page you visited was not found.
+404HomeLinkMessage: return to the home page

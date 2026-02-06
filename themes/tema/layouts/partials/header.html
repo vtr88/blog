@@ -1,6 +1,6 @@
 <div class="newspaper-header">
   <img src="/logo.png" alt="{{ site.Title }}" class="newspaper-logo">
-  <h1 class="newspaper-title">{{ site.Title }}</h1>
+  <h1 class="newspaper-title">{{ site.Params.headerTitle | default site.Title }}</h1>
 </div>
   <nav class="menu language">
     <ul class="menu__list language__list">
