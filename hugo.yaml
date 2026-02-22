@@ -8,6 +8,11 @@ enableGitInfo: false # Set lastmod from git history, this may increase build tim
 enableEmoji: true # Emoji list: https://gohugo.io/quick-reference/emojis/
 enableRobotsTXT: true
 
+outputFormats:
+  RSS:
+    baseName: rss
+    mediaType: application/rss+xml
+
 params:
   _merge: deep # Import default config
   rssFullContent: true
