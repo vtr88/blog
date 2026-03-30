@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kanban da Familia</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">vitor.win / espaco da familia</p>
+          <h1>Kanban da Familia</h1>
+          <p class="subtitle">Quatro listas, cartoes compartilhados e leve o bastante para viver junto do blog.</p>
+        </div>
+        <div class="toolbar">
+          <label class="search-wrap" for="search">
+            <span>Filtro</span>
+            <input id="search" name="search" type="search" placeholder="Buscar titulos, tags e tarefas">
+          </label>
+          <button id="reload-button" class="ghost" type="button">Recarregar</button>
+          <div id="save-status" class="status-pill" aria-live="polite">Carregando...</div>
+        </div>
+      </header>
+
+      <main>
+        <section id="board" class="board" aria-label="Quadro kanban"></section>
+      </main>
+    </div>
+
+    <dialog id="card-dialog" class="card-dialog">
+      <form id="card-form" method="dialog">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Editor de cartao</p>
+            <h2 id="dialog-title">Novo cartao</h2>
+          </div>
+          <button class="icon-button" type="button" id="close-dialog" aria-label="Fechar editor">×</button>
+        </div>
+
+        <label class="field">
+          <span>Titulo</span>
+          <input id="card-title" name="title" type="text" maxlength="120" required>
+        </label>
+
+        <label class="field">
+          <span>Notas</span>
+          <textarea id="card-description" name="description" rows="4" maxlength="500"></textarea>
+        </label>
+
+        <label class="field">
+          <span>Tags</span>
+          <input id="card-tags" name="tags" type="text" maxlength="200" placeholder="casa, urgente, escola">
+        </label>
+
+        <label class="field">
+          <span>Tarefas</span>
+          <textarea id="card-tasks" name="tasks" rows="6" maxlength="800" placeholder="Uma tarefa por linha&#10;Comprar pao&#10;Pagar conta de agua"></textarea>
+        </label>
+
+        <div class="dialog-actions">
+          <button id="delete-card" class="ghost danger" type="button" hidden>Excluir</button>
+          <div class="spacer"></div>
+          <button class="ghost" type="button" id="cancel-dialog">Cancelar</button>
+          <button class="solid" type="submit">Salvar cartao</button>
+        </div>
+      </form>
+    </dialog>
+
+    <noscript>
+      <p class="noscript">Esta pagina precisa de JavaScript habilitado para carregar o quadro.</p>
+    </noscript>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
