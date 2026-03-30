@@ -20,7 +20,6 @@
             <span>Filtro</span>
             <input id="search" name="search" type="search" placeholder="Buscar titulos, tags e tarefas">
           </label>
-          <button id="reload-button" class="ghost" type="button">Recarregar</button>
           <div id="save-status" class="status-pill" aria-live="polite">Carregando...</div>
         </div>
       </header>
@@ -53,6 +52,15 @@
         <label class="field">
           <span>Tags</span>
           <input id="card-tags" name="tags" type="text" maxlength="200" placeholder="casa, urgente, escola">
+        </label>
+
+        <label class="field">
+          <span>Responsavel</span>
+          <select id="card-owner" name="owner">
+            <option value="">Sem responsavel</option>
+            <option value="me">Comigo</option>
+            <option value="wife">Com minha esposa</option>
+          </select>
         </label>
 
         <label class="field">

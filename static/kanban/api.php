@@ -7,14 +7,15 @@ header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 
 const DEFAULT_COLUMNS = [
     [
-        'id' => 'backlog',
-        'title' => 'Ideias',
+        'id' => 'problems',
+        'title' => 'Problemas',
         'cards' => [
             [
                 'id' => 'welcome-card',
                 'title' => 'Bem-vindos ao quadro',
                 'description' => 'Este cartao esta aqui so para mostrar o fluxo. Edite, arraste ou exclua quando as tarefas reais da familia chegarem.',
                 'tags' => ['casa', 'exemplo'],
+                'owner' => '',
                 'tasks' => [
                     ['id' => 'welcome-task-1', 'text' => 'Clique no lapis para editar um cartao', 'done' => false],
                     ['id' => 'welcome-task-2', 'text' => 'Arraste o cartao para outra lista', 'done' => false],
@@ -23,7 +24,7 @@ const DEFAULT_COLUMNS = [
             ],
         ],
     ],
-    ['id' => 'this-week', 'title' => 'Esta Semana', 'cards' => []],
+    ['id' => 'assigned', 'title' => 'Atribuidos', 'cards' => []],
     ['id' => 'doing', 'title' => 'Em Andamento', 'cards' => []],
     ['id' => 'done', 'title' => 'Concluido', 'cards' => []],
 ];
@@ -208,13 +209,14 @@ function normalize_state(array $state): array
                 'title' => $cardTitle,
                 'description' => trim((string)($card['description'] ?? '')),
                 'tags' => $normalizedTags,
+                'owner' => normalize_owner($card['owner'] ?? ''),
                 'tasks' => $normalizedTasks,
             ];
         }
 
         $normalizedColumns[] = [
-            'id' => safe_id($column['id'] ?? $defaultColumn['id']),
-            'title' => $title !== '' ? $title : $defaultColumn['title'],
+            'id' => $defaultColumn['id'],
+            'title' => $defaultColumn['title'],
             'cards' => $normalizedCards,
         ];
     }
@@ -232,6 +234,11 @@ function safe_id($value): string
     $clean = trim((string)$clean, '-');
 
     return $clean !== '' ? $clean : uniqid('id-', true);
+}
+
+function normalize_owner($value): string
+{
+    return $value === 'me' || $value === 'wife' ? $value : '';
 }
 
 function respond(array $payload, int $status = 200): void

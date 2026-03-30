@@ -3,14 +3,15 @@ const DEFAULT_STATE = {
   updatedAt: null,
   columns: [
     {
-      id: "backlog",
-      title: "Ideias",
+      id: "problems",
+      title: "Problemas",
       cards: [
         {
           id: createId(),
           title: "Bem-vindos ao quadro",
           description: "Este cartao esta aqui so para mostrar o fluxo. Edite, arraste ou exclua quando as tarefas reais da familia chegarem.",
           tags: ["casa", "exemplo"],
+          owner: "",
           tasks: [
             { id: createId(), text: "Clique no lapis para editar um cartao", done: false },
             { id: createId(), text: "Arraste o cartao para outra lista", done: false },
@@ -19,7 +20,7 @@ const DEFAULT_STATE = {
         }
       ]
     },
-    { id: "this-week", title: "Esta Semana", cards: [] },
+    { id: "assigned", title: "Atribuidos", cards: [] },
     { id: "doing", title: "Em Andamento", cards: [] },
     { id: "done", title: "Concluido", cards: [] }
   ]
@@ -27,7 +28,6 @@ const DEFAULT_STATE = {
 
 const boardElement = document.querySelector("#board");
 const searchInput = document.querySelector("#search");
-const reloadButton = document.querySelector("#reload-button");
 const saveStatus = document.querySelector("#save-status");
 const dialog = document.querySelector("#card-dialog");
 const cardForm = document.querySelector("#card-form");
@@ -38,6 +38,7 @@ const deleteCardButton = document.querySelector("#delete-card");
 const titleInput = document.querySelector("#card-title");
 const descriptionInput = document.querySelector("#card-description");
 const tagsInput = document.querySelector("#card-tags");
+const ownerInput = document.querySelector("#card-owner");
 const tasksInput = document.querySelector("#card-tasks");
 
 let state = cloneState(DEFAULT_STATE);
@@ -55,11 +56,6 @@ async function init() {
 
 function wireEvents() {
   searchInput.addEventListener("input", renderBoard);
-  reloadButton.addEventListener("click", async () => {
-    setStatus("Recarregando...");
-    await loadBoard(true);
-    renderBoard();
-  });
 
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -118,7 +114,7 @@ function renderBoard() {
     columnElement.innerHTML = `
       <div class="column-head">
         <div class="column-title-wrap">
-          <input class="column-title-input" type="text" value="${escapeAttribute(column.title)}" aria-label="Titulo da lista">
+          <h2 class="column-title">${escapeHtml(column.title)}</h2>
           <div class="column-meta">${countLabel}</div>
         </div>
       </div>
@@ -127,13 +123,6 @@ function renderBoard() {
         <button class="ghost add-card" type="button">Novo cartao</button>
       </div>
     `;
-
-    const titleEditor = columnElement.querySelector(".column-title-input");
-    titleEditor.addEventListener("change", () => {
-      column.title = titleEditor.value.trim() || column.title;
-      renderBoard();
-      queueSave();
-    });
 
     const addCardButton = columnElement.querySelector(".add-card");
     addCardButton.addEventListener("click", () => openDialog(column.id));
@@ -160,9 +149,11 @@ function renderBoard() {
 
 function renderCard(columnId, card) {
   const cardElement = document.createElement("article");
-  cardElement.className = "card";
+  cardElement.className = `card ${card.owner ? `owner-${card.owner}` : ""}`.trim();
   cardElement.draggable = true;
   cardElement.dataset.cardId = card.id;
+  const ownerLabel = getOwnerLabel(card.owner);
+  const ownerMarkup = ownerLabel ? `<div class="owner-chip owner-${card.owner}">${escapeHtml(ownerLabel)}</div>` : "";
 
   const tagsMarkup = card.tags.length
     ? `<div class="tag-row">${card.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>`
@@ -190,6 +181,7 @@ function renderCard(columnId, card) {
       <h3 class="card-title">${escapeHtml(card.title)}</h3>
       <button class="card-edit" type="button" aria-label="Editar cartao">✎</button>
     </div>
+    ${ownerMarkup}
     ${card.description ? `<p class="card-description">${escapeHtml(card.description)}</p>` : ""}
     ${tagsMarkup}
     ${tasksMarkup}
@@ -227,6 +219,7 @@ function openDialog(columnId, cardId = null) {
   titleInput.value = card?.title ?? "";
   descriptionInput.value = card?.description ?? "";
   tagsInput.value = card?.tags.join(", ") ?? "";
+  ownerInput.value = normalizeOwner(card?.owner ?? "");
   tasksInput.value = card?.tasks.map((task) => `${task.done ? "[x]" : "[ ]"} ${task.text}`).join("\n") ?? "";
   deleteCardButton.hidden = !card;
   dialog.showModal();
@@ -248,6 +241,7 @@ function saveEditorChanges() {
     title: titleInput.value.trim(),
     description: descriptionInput.value.trim(),
     tags: parseTags(tagsInput.value),
+    owner: normalizeOwner(ownerInput.value),
     tasks: parseTasks(tasksInput.value)
   };
 
@@ -277,6 +271,7 @@ function createCard(columnId, payload) {
     title: payload.title,
     description: payload.description,
     tags: payload.tags,
+    owner: payload.owner,
     tasks: payload.tasks
   });
 
@@ -294,6 +289,7 @@ function updateCard(columnId, cardId, payload) {
   card.title = payload.title;
   card.description = payload.description;
   card.tags = payload.tags;
+  card.owner = payload.owner;
   card.tasks = payload.tasks;
   renderBoard();
   queueSave();
@@ -454,6 +450,7 @@ function matchesFilter(card, query) {
   const haystack = [
     card.title,
     card.description,
+    getOwnerLabel(card.owner),
     card.tags.join(" "),
     card.tasks.map((task) => task.text).join(" ")
   ]
@@ -506,8 +503,8 @@ function normalizeState(payload) {
     const column = columns[index] ?? defaultColumn;
 
     normalizedColumns.push({
-      id: typeof column.id === "string" && column.id ? column.id : defaultColumn.id,
-      title: typeof column.title === "string" && column.title.trim() ? column.title.trim() : defaultColumn.title,
+      id: defaultColumn.id,
+      title: defaultColumn.title,
       cards: Array.isArray(column.cards)
         ? column.cards.map((card) => ({
             id: typeof card.id === "string" && card.id ? card.id : createId(),
@@ -519,6 +516,7 @@ function normalizeState(payload) {
                   .filter(Boolean)
                   .slice(0, 8)
               : [],
+            owner: normalizeOwner(card.owner),
             tasks: Array.isArray(card.tasks)
               ? card.tasks
                   .map((task) => ({
@@ -576,6 +574,22 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value).replaceAll("`", "&#96;");
+}
+
+function normalizeOwner(value) {
+  return value === "me" || value === "wife" ? value : "";
+}
+
+function getOwnerLabel(owner) {
+  if (owner === "me") {
+    return "Comigo";
+  }
+
+  if (owner === "wife") {
+    return "Minha esposa";
+  }
+
+  return "";
 }
 
 function createId() {

@@ -61,12 +61,14 @@ body::after {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
 
 button,
 input,
+select,
 textarea,
 dialog {
   color: inherit;
@@ -100,7 +102,7 @@ dialog {
 
 h1,
 h2,
-.column-title-input {
+.column-title {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
 }
 
@@ -138,8 +140,8 @@ h1 {
 
 input[type="search"],
 input[type="text"],
-textarea,
-.column-title-input {
+select,
+textarea {
   width: 100%;
   border: 1px solid rgba(75, 49, 24, 0.16);
   border-radius: 0.9rem;
@@ -149,8 +151,8 @@ textarea,
 }
 
 input:focus,
-textarea:focus,
-.column-title-input:focus {
+select:focus,
+textarea:focus {
   outline: none;
   border-color: rgba(143, 59, 40, 0.55);
   box-shadow: 0 0 0 3px rgba(143, 59, 40, 0.12);
@@ -272,10 +274,8 @@ button:active {
   flex: 1;
 }
 
-.column-title-input {
-  border: 0;
-  background: transparent;
-  padding: 0;
+.column-title {
+  margin: 0;
   font-size: 1.45rem;
   font-weight: 700;
 }
@@ -302,11 +302,22 @@ button:active {
 .card {
   padding: 0.95rem;
   border: 1px solid rgba(75, 49, 24, 0.12);
+  border-left-width: 0.45rem;
   border-radius: 1.1rem;
   background: var(--panel-strong);
   box-shadow: 0 10px 26px rgba(81, 49, 19, 0.08);
   cursor: grab;
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.card.owner-me {
+  border-left-color: #2f6b4f;
+  background: linear-gradient(180deg, rgba(233, 247, 239, 0.96), rgba(255, 249, 240, 0.95));
+}
+
+.card.owner-wife {
+  border-left-color: #8e2720;
+  background: linear-gradient(180deg, rgba(252, 235, 232, 0.96), rgba(255, 249, 240, 0.95));
 }
 
 .card:hover {
@@ -344,6 +355,26 @@ button:active {
   color: var(--muted);
   font-size: 0.92rem;
   white-space: pre-wrap;
+}
+
+.owner-chip {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.7rem;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.owner-chip.owner-me {
+  background: rgba(47, 107, 79, 0.12);
+  color: #22523c;
+}
+
+.owner-chip.owner-wife {
+  background: rgba(142, 39, 32, 0.12);
+  color: #7a211b;
 }
 
 .tag-row,
