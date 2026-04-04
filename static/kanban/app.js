@@ -582,11 +582,11 @@ function normalizeOwner(value) {
 
 function getOwnerLabel(owner) {
   if (owner === "me") {
-    return "Comigo";
+    return "Vitor";
   }
 
   if (owner === "wife") {
-    return "Minha esposa";
+    return "Fran";
   }
 
   return "";
