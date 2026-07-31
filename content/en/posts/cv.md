@@ -5,6 +5,8 @@ draft: false
 hidePageNav: true
 ---
 
-PT-BR: [Download](../vitor.pdf)
+PT-BR: [Download](../vitorbr.pdf)
+
+Español: [Download](../vitores.pdf)
 
 English: [Download](../vitoren.pdf)
