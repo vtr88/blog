@@ -5,6 +5,7 @@
   --foreground-color: #{$foreground-color-light}; // text
   --foreground-color3: #{$foreground-color3-light}; // figcaption
   --accent-color: #{$accent-color-light}; // link, blockquote
+  --accent-hover-color: #{$accent-hover-color-light};
 }
 
 // Override variables for dark theme
@@ -40,7 +41,7 @@ a {
 }
 
 a:hover {
-  opacity: 0.8;
+  color: var(--accent-hover-color);
 }
 
 .header {
