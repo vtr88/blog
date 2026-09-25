@@ -179,10 +179,7 @@ iframe {
 // Paginator
 .pagination {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .page-item.active {
