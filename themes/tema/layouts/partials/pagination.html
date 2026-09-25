@@ -1,0 +1,49 @@
+{{ $pager := .Paginator }}
+{{ if gt $pager.TotalPages 1 }}
+<ul class="pagination">
+  <li class="page-item"><a href="{{ $pager.First.URL }}" aria-label="First page">&laquo;&laquo;</a></li>
+  <li class="page-item">{{ if $pager.HasPrev }}<a href="{{ $pager.Prev.URL }}" aria-label="Previous page">&laquo;</a>{{ else }}<span aria-disabled="true">&laquo;</span>{{ end }}</li>
+  {{ range $pager.Pagers }}
+  <li class="page-item{{ if eq .PageNumber $pager.PageNumber }} active{{ end }}" data-page-number="{{ .PageNumber }}"><a href="{{ .URL }}"{{ if eq .PageNumber $pager.PageNumber }} aria-current="page"{{ end }}>{{ .PageNumber }}</a></li>
+  {{ end }}
+  <li class="page-item">{{ if $pager.HasNext }}<a href="{{ $pager.Next.URL }}" aria-label="Next page">&raquo;</a>{{ else }}<span aria-disabled="true">&raquo;</span>{{ end }}</li>
+  <li class="page-item"><a href="{{ $pager.Last.URL }}" aria-label="Last page">&raquo;&raquo;</a></li>
+</ul>
+<script>
+(() => {
+  const list = document.currentScript.previousElementSibling;
+  const pages = [...list.querySelectorAll('[data-page-number]')];
+  const controls = [...list.children].filter(item => !item.hasAttribute('data-page-number'));
+  const current = pages.findIndex(item => item.classList.contains('active'));
+  function fitPages() {
+    pages.forEach(item => { item.hidden = false; });
+    const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
+    const widths = pages.map(item => item.getBoundingClientRect().width);
+    const fixed = controls.reduce((sum, item) => sum + item.getBoundingClientRect().width, 0);
+    // Select the largest contiguous range that fits around the current page.
+    for (let count = pages.length; count >= 1; count--) {
+      const start = Math.max(0, Math.min(current - Math.floor(count / 2), pages.length - count));
+      const width = fixed + widths.slice(start, start + count).reduce((a, b) => a + b, 0)
+        + gap * (controls.length + count - 1);
+      if (width <= list.clientWidth || count === 1) {
+        pages.forEach((item, index) => { item.hidden = index < start || index >= start + count; });
+        break;
+      }
+    }
+  }
+  let previousWidth = -1;
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => {
+      if (list.clientWidth !== previousWidth) {
+        previousWidth = list.clientWidth;
+        fitPages();
+      }
+    }).observe(list);
+  } else {
+    window.addEventListener('resize', fitPages);
+  }
+  fitPages();
+  if (document.fonts) document.fonts.ready.then(fitPages);
+})();
+</script>
+{{ end }}

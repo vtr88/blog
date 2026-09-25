@@ -180,9 +180,13 @@ iframe {
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   width: 100%;
-  gap: 0.5rem;
+  gap: 1rem;
+  align-items: center;
+
+  .page-item {
+    flex: 0 0 auto;
+  }
 }
 
 .page-item.active {
